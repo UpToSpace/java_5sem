@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Add Film</title>
+</head>
+<body>
+<div class="container">
+    <h1>New film:</h1>
+    <form th:action="@{/changefilm}"
+          th:object="${filmform}" method="POST">
+        <p>ID:
+            <input type="text" th:field="*{id}" />
+        </p>
+        <p>Title:
+            <input type="text" th:field="*{title}" />
+        </p>
+        <p> Director:
+            <input type="text" th:field="*{director}" />
+        </p>
+        <input class ="button-main-page" type="submit" value="change" />
+    </form>
+</div>
+<div th:if="${errorMessage}" th:utext="${errorMessage}"
+     style="color:red;font-style:italic;">
+</div>
+</body>
